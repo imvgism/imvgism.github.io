@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>اسم التطبيق — IMAGISM</title>
+  <meta name="description" content="وصف التطبيق هنا" />
+  <meta name="theme-color" content="#F6F3ED" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="اسم التطبيق — IMAGISM" />
+  <meta property="og:description" content="وصف التطبيق هنا" />
+  <meta property="og:image" content="YOUR_HERO_IMAGE_URL_HERE" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Immediate Theme (Zero Flash) -->
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('riwaq_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.style.colorScheme = (t === 'night' ? 'dark' : t);
+        var mc = document.querySelector('meta[name="theme-color"]');
+        if(mc) mc.content = t === 'light' ? '#F6F3ED' : (t === 'dark' ? '#121210' : '#18140F');
+      } catch(e){}
+    })();
+  </script>
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   Riwaq Design System — Core Variables & Base
+   ══════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper: #F6F3ED; --paper-soft: #FBF9F4;
+  --ink: #15140F; --ink-2: #4A4740; --ink-3: #8B857A;
+  --line: rgba(21,20,15,.1); --line-strong: rgba(21,20,15,.22);
+  --accent: #2F3FA8; --accent-soft: rgba(47,63,168,.1);
+  --glass: rgba(246,243,237,.82); --glass-2: rgba(251,249,244,.94);
+  --hover: rgba(21,20,15,.055);
+  --shadow-rgb: 21 20 15;
+  --skeleton-a: rgba(21,20,15,.05); --skeleton-b: rgba(21,20,15,.1);
+}
+:root[data-theme="dark"] {
+  --paper: #121210; --paper-soft: #1A1A17;
+  --ink: #F2EFE7; --ink-2: #BDB8AC; --ink-3: #837E73;
+  --line: rgba(242,239,231,.13); --line-strong: rgba(242,239,231,.28);
+  --accent: #8FA0FF; --accent-soft: rgba(143,160,255,.14);
+  --glass: rgba(18,18,16,.82); --glass-2: rgba(26,26,23,.94);
+  --hover: rgba(242,239,231,.07);
+  --shadow-rgb: 0 0 0;
+}
+:root[data-theme="night"] {
+  --paper: #18140F; --paper-soft: #221D16;
+  --ink: #F2E2C3; --ink-2: #D1BFA0; --ink-3: #9E8D73;
+  --line: rgba(242,226,195,.14); --line-strong: rgba(242,226,195,.28);
+  --accent: #E0A75E; --accent-soft: rgba(224,167,94,.16);
+  --glass: rgba(24,20,15,.86); --glass-2: rgba(34,29,22,.95);
+  --hover: rgba(242,226,195,.08);
+  --shadow-rgb: 0 0 0;
+}
+
+html, body {
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  direction: rtl;
+  font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color .4s ease, color .4s ease;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent-soft); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background-color: rgba(128,128,128,0.3); border-radius: 4px; }
+html { scrollbar-width: thin; }
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { list-style: none; padding: 0; margin: 0; }
+
+.font-display {
+  font-family: 'Readex Pro', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  font-weight: 500;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   App Background — Riwaq Radial Glow
+   ══════════════════════════════════════════════════════════════ */
+.app-bg {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(1000px 460px at 100% -10%, var(--accent-soft), transparent 62%),
+    radial-gradient(760px 420px at -8% 0%, rgba(21,20,15,.05), transparent 58%);
+  transition: background-color .4s ease;
+}
+:root[data-theme="dark"] .app-bg {
+  background-image:
+    radial-gradient(1000px 460px at 100% -10%, rgba(143,160,255,.1), transparent 62%),
+    radial-gradient(760px 420px at -8% 0%, rgba(242,239,231,.045), transparent 58%);
+}
+:root[data-theme="night"] .app-bg {
+  background-image:
+    radial-gradient(1000px 460px at 100% -10%, rgba(224,167,94,.12), transparent 62%),
+    radial-gradient(760px 420px at -8% 0%, rgba(242,226,195,.05), transparent 58%);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Animations
+   ══════════════════════════════════════════════════════════════ */
+@keyframes fadeUp { 0%{opacity:0;transform:translateY(24px)} 100%{opacity:1;transform:none} }
+@keyframes fadeIn { 0%{opacity:0} 100%{opacity:1} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes scaleIn { 0%{opacity:0;transform:scale(.88)} 100%{opacity:1;transform:scale(1)} }
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+@keyframes growLine { 0%{transform:scaleX(0)} 100%{transform:scaleX(1)} }
+@keyframes ping { 75%,100%{transform:scale(2);opacity:0} }
+@keyframes shimmerBtn { 0%{background-position:200% center} 100%{background-position:-200% center} }
+
+.reveal { animation: fadeUp .65s cubic-bezier(.22,1,.36,1) both; }
+.reveal-d1 { animation-delay: .1s; }
+.reveal-d2 { animation-delay: .2s; }
+.reveal-d3 { animation-delay: .3s; }
+.reveal-d4 { animation-delay: .4s; }
+.reveal-d5 { animation-delay: .5s; }
+.reveal-d6 { animation-delay: .6s; }
+
+/* Scroll Reveal */
+.sr { opacity: 0; transform: translateY(25px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+.sr.visible { opacity: 1; transform: none; }
+.sr-d1 { transition-delay: .1s } .sr-d2 { transition-delay: .2s } .sr-d3 { transition-delay: .3s } .sr-d4 { transition-delay: .4s }
+
+/* ══════════════════════════════════════════════════════════════
+   Top Header Bar — Riwaq Style
+   ══════════════════════════════════════════════════════════════ */
+.rw-topbar {
+  position: sticky; top: 0; z-index: 40;
+  border-bottom: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.rw-topbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1100px; margin: 0 auto;
+  height: 56px; padding: 0 1.25rem;
+}
+.rw-logo { display: flex; align-items: center; gap: .7rem; }
+.rw-logo-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: .5rem;
+  background: var(--ink); color: var(--paper);
+  box-shadow: 0 1px 4px rgba(var(--shadow-rgb) / .15);
+}
+.rw-logo-text {
+  font-family: 'Readex Pro', sans-serif; font-weight: 600;
+  font-size: 13px; letter-spacing: .28em; color: var(--ink);
+}
+.rw-nav-actions { display: flex; align-items: center; gap: .4rem; }
+
+/* Theme Toggle Button (Riwaq) */
+.theme-btn {
+  position: relative; width: 36px; height: 36px; border-radius: .5rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--paper-soft); border: 1px solid var(--line);
+  color: var(--ink-2); cursor: pointer; overflow: hidden;
+  transition: background .25s ease, border-color .25s ease, transform .2s cubic-bezier(.34,1.56,.64,1);
+}
+.theme-btn:hover { background: var(--hover); color: var(--ink); border-color: var(--line-strong); }
+.theme-btn:active { transform: scale(.9); }
+.theme-btn svg {
+  position: absolute; top: 50%; left: 50%; width: 18px; height: 18px;
+  transition: transform .45s cubic-bezier(.34,1.56,.64,1), opacity .35s ease;
+}
+:root[data-theme="light"] .theme-btn .t-sun { opacity:1; transform:translate(-50%,-50%) rotate(0) scale(1); color:#d97706; }
+:root[data-theme="light"] .theme-btn .t-moon, :root[data-theme="light"] .theme-btn .t-night { opacity:0; transform:translate(-50%,-50%) rotate(90deg) scale(.4); }
+:root[data-theme="dark"] .theme-btn .t-moon { opacity:1; transform:translate(-50%,-50%) rotate(0) scale(1); color:var(--accent); }
+:root[data-theme="dark"] .theme-btn .t-sun, :root[data-theme="dark"] .theme-btn .t-night { opacity:0; transform:translate(-50%,-50%) rotate(-90deg) scale(.4); }
+:root[data-theme="night"] .theme-btn .t-night { opacity:1; transform:translate(-50%,-50%) rotate(0) scale(1); color:var(--accent); }
+:root[data-theme="night"] .theme-btn .t-sun, :root[data-theme="night"] .theme-btn .t-moon { opacity:0; transform:translate(-50%,-50%) rotate(-90deg) scale(.4); }
+
+/* GitHub Star Button */
+.gh-btn {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .45rem 1rem; border-radius: 999px;
+  font-size: .78rem; font-weight: 600;
+  background: var(--paper-soft); border: 1px solid var(--line);
+  color: var(--ink-2); cursor: pointer;
+  transition: all .3s ease;
+}
+.gh-btn:hover { border-color: var(--line-strong); color: var(--ink); transform: translateY(-1px); }
+.gh-btn svg { width: 16px; height: 16px; }
+
+/* ══════════════════════════════════════════════════════════════
+   Hero Section
+   ══════════════════════════════════════════════════════════════ */
+.app-hero {
+  position: relative; padding: 5rem 1.5rem 3.5rem;
+  text-align: center; overflow: hidden;
+  min-height: 90vh; display: flex; align-items: center; justify-content: center;
+}
+.app-hero::before {
+  content: ''; position: absolute; top: -30%; left: 50%; transform: translateX(-50%);
+  width: 1000px; height: 1000px;
+  background: radial-gradient(circle, var(--accent-soft) 0%, transparent 65%);
+  pointer-events: none; z-index: 0;
+}
+.app-hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 140px;
+  background: linear-gradient(to top, var(--paper), transparent);
+  pointer-events: none; z-index: 1;
+}
+.hero-inner { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; }
+
+/* Hero Image */
+.hero-img-wrap {
+  width: 100%; max-width: 740px; margin: 0 auto 2.5rem;
+  border-radius: 1.15rem; overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 60px -20px rgba(var(--shadow-rgb) / .2);
+  animation: scaleIn .8s cubic-bezier(.22,1,.36,1) both;
+  transition: transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease;
+}
+.hero-img-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 70px -22px rgba(var(--shadow-rgb) / .35);
+}
+.hero-img-wrap img { width: 100%; display: block; }
+
+/* App Icon */
+.app-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 84px; height: 84px; border-radius: 22px;
+  background: var(--paper-soft); border: 1px solid var(--line);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 30px -10px rgba(var(--shadow-rgb) / .2);
+  animation: fadeUp .6s cubic-bezier(.22,1,.36,1) .15s both, float 4s ease-in-out 1s infinite;
+}
+.app-icon img { width: 58px; height: 58px; border-radius: 14px; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--accent-soft); color: var(--accent);
+  padding: .35rem 1rem; border-radius: 999px;
+  font-size: .76rem; font-weight: 600; letter-spacing: .03em;
+  margin-bottom: 1.2rem;
+  animation: fadeUp .6s cubic-bezier(.22,1,.36,1) .25s both;
+}
+.hero-badge svg { width: 14px; height: 14px; }
+
+.app-hero h1 {
+  font-family: 'Readex Pro', 'IBM Plex Sans Arabic', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700; line-height: 1.35;
+  margin: 0 0 1rem; color: var(--ink);
+  animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .35s both;
+}
+.hero-desc {
+  font-size: 1.02rem; line-height: 1.85; color: var(--ink-2);
+  max-width: 540px; margin: 0 auto 2.2rem;
+  animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .45s both;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Download Buttons
+   ══════════════════════════════════════════════════════════════ */
+.dl-group {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem;
+  animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .55s both;
+}
+.dl-btn {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .82rem 1.7rem; border-radius: 999px;
+  font-size: .88rem; font-weight: 600;
+  text-decoration: none; position: relative; overflow: hidden; cursor: pointer;
+  transition: all .35s cubic-bezier(.22,1,.36,1); border: none;
+}
+.dl-btn::after {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(115deg, transparent 25%, rgba(255,255,255,.18) 50%, transparent 75%);
+  transform: translateX(-100%); transition: transform .6s ease;
+}
+.dl-btn:hover::after { transform: translateX(100%); }
+.dl-btn span, .dl-btn svg { position: relative; z-index: 1; }
+.dl-btn svg { width: 19px; height: 19px; flex-shrink: 0; }
+.dl-ver { font-size: .68rem; opacity: .65; margin-inline-start: .25rem; }
+
+.dl-android {
+  background: #1a73e8; color: #fff;
+  box-shadow: 0 4px 20px -8px rgba(26,115,232,.5);
+}
+.dl-android:hover { transform: translateY(-3px); box-shadow: 0 14px 32px -10px rgba(26,115,232,.6); color: #fff; }
+
+.dl-windows {
+  background: var(--ink); color: var(--paper);
+  box-shadow: 0 4px 20px -8px rgba(var(--shadow-rgb) / .4);
+}
+.dl-windows:hover { transform: translateY(-3px); box-shadow: 0 14px 32px -10px rgba(var(--shadow-rgb) / .7); color: var(--paper); }
+
+/* ══════════════════════════════════════════════════════════════
+   Ornament Divider — Riwaq
+   ══════════════════════════════════════════════════════════════ */
+.ornament {
+  display: flex; align-items: center; gap: .9rem;
+  color: var(--ink-3); font-size: .7rem; letter-spacing: .3em;
+  max-width: 960px; margin: 0 auto; padding: 0 1.5rem;
+}
+.ornament::before, .ornament::after {
+  content: ''; flex: 1; height: 1px; background: var(--line);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Section
+   ══════════════════════════════════════════════════════════════ */
+.sec { padding: 4rem 1.5rem; max-width: 960px; margin: 0 auto; }
+.sec-title {
+  font-family: 'Readex Pro', 'IBM Plex Sans Arabic', sans-serif;
+  font-size: 1.5rem; font-weight: 700; text-align: center;
+  margin-bottom: .5rem; color: var(--ink);
+}
+.sec-sub { text-align: center; color: var(--ink-3); font-size: .9rem; margin-bottom: 2.5rem; line-height: 1.7; }
+
+/* ══════════════════════════════════════════════════════════════
+   Info Card
+   ══════════════════════════════════════════════════════════════ */
+.info-card {
+  background: var(--paper-soft); border: 1px solid var(--line); border-radius: 1.15rem;
+  padding: 1.5rem; margin-bottom: 2rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem;
+}
+.info-item { text-align: center; padding: .8rem .4rem; }
+.info-label { font-size: .72rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .3rem; }
+.info-val { font-family: 'Readex Pro', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+
+/* ══════════════════════════════════════════════════════════════
+   Phone Screenshots — Infinite Marquee
+   ══════════════════════════════════════════════════════════════ */
+.phones-sec { padding: 3rem 0; overflow: hidden; position: relative; }
+.phones-sec::before, .phones-sec::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 3; pointer-events: none;
+}
+.phones-sec::before { right: 0; background: linear-gradient(to left, var(--paper), transparent); }
+.phones-sec::after { left: 0; background: linear-gradient(to right, var(--paper), transparent); }
+
+.phones-track {
+  display: flex; gap: 1.1rem;
+  animation: marquee 40s linear infinite; width: max-content;
+}
+.phones-track:hover { animation-play-state: paused; }
+
+.phone {
+  flex-shrink: 0; width: 210px; border-radius: 1.6rem; overflow: hidden;
+  border: 3px solid var(--line); background: var(--paper-soft);
+  box-shadow: 0 10px 35px -12px rgba(var(--shadow-rgb) / .18);
+  transition: all .4s cubic-bezier(.22,1,.36,1); position: relative;
+}
+.phone::before {
+  content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 56px; height: 16px; background: var(--ink); border-radius: 999px; opacity: .1; z-index: 2;
+}
+.phone:hover {
+  transform: translateY(-8px) scale(1.04);
+  border-color: var(--accent);
+  box-shadow: 0 22px 50px -16px rgba(var(--shadow-rgb) / .32);
+}
+.phone img { width: 100%; display: block; }
+
+/* ══════════════════════════════════════════════════════════════
+   Desktop Screenshot — Window Frame
+   ══════════════════════════════════════════════════════════════ */
+.desktop-frame {
+  max-width: 820px; margin: 0 auto 2.5rem; border-radius: 1rem; overflow: hidden;
+  border: 2px solid var(--line); background: var(--paper-soft);
+  box-shadow: 0 20px 60px -20px rgba(var(--shadow-rgb) / .22);
+  transition: all .5s cubic-bezier(.22,1,.36,1);
+}
+.desktop-frame:hover { transform: translateY(-5px); box-shadow: 0 30px 70px -22px rgba(var(--shadow-rgb) / .32); }
+.desktop-bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 16px; background: var(--hover); border-bottom: 1px solid var(--line);
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot:nth-child(1) { background: #ff5f57; }
+.dot:nth-child(2) { background: #febc2e; }
+.dot:nth-child(3) { background: #28c840; }
+.desktop-frame img { width: 100%; display: block; }
+
+/* ══════════════════════════════════════════════════════════════
+   Features Grid — Riwaq Cards
+   ══════════════════════════════════════════════════════════════ */
+.feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.1rem; }
+.feat-card {
+  background: var(--paper-soft); border: 1px solid var(--line); border-radius: 1.15rem;
+  padding: 1.6rem; position: relative; overflow: hidden;
+  transition: all .4s cubic-bezier(.22,1,.36,1);
+}
+.feat-card::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 80px; height: 80px;
+  background: radial-gradient(circle at top right, var(--accent-soft), transparent 70%);
+  opacity: 0; transition: opacity .4s ease;
+}
+.feat-card:hover { transform: translateY(-4px); border-color: var(--line-strong); box-shadow: 0 20px 40px -18px rgba(var(--shadow-rgb) / .18); }
+.feat-card:hover::before { opacity: 1; }
+.feat-icon {
+  width: 42px; height: 42px; border-radius: 11px;
+  background: var(--accent-soft); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: .9rem; font-size: 1.25rem;
+}
+.feat-title { font-family: 'Readex Pro', sans-serif; font-weight: 600; font-size: .95rem; margin-bottom: .4rem; color: var(--ink); }
+.feat-desc { font-size: .82rem; color: var(--ink-2); line-height: 1.75; }
+
+/* ══════════════════════════════════════════════════════════════
+   Addons
+   ══════════════════════════════════════════════════════════════ */
+.addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .9rem; }
+.addon {
+  display: flex; align-items: center; gap: .9rem;
+  background: var(--paper-soft); border: 1px solid var(--line); border-radius: 1rem;
+  padding: 1.1rem; transition: all .35s cubic-bezier(.22,1,.36,1);
+}
+.addon:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: 0 14px 28px -14px rgba(var(--shadow-rgb) / .18); }
+.addon-icon {
+  width: 42px; height: 42px; border-radius: 11px; background: var(--hover);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.addon-name { font-weight: 600; font-size: .88rem; color: var(--ink); margin-bottom: .1rem; }
+.addon-desc { font-size: .76rem; color: var(--ink-3); line-height: 1.55; }
+
+/* ══════════════════════════════════════════════════════════════
+   Pros & Cons
+   ══════════════════════════════════════════════════════════════ */
+.pc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
+.pros, .cons { border-radius: 1rem; padding: 1.4rem; border: 1px solid var(--line); }
+.pros { background: rgba(5,150,105,.06); border-color: rgba(5,150,105,.2); }
+.cons { background: rgba(239,68,68,.05); border-color: rgba(239,68,68,.18); }
+.pc-title {
+  font-family: 'Readex Pro', sans-serif; font-weight: 700; font-size: 1rem;
+  margin-bottom: .9rem; display: flex; align-items: center; gap: .5rem;
+}
+.pros .pc-title { color: #059669; }
+.cons .pc-title { color: #ef4444; }
+.pros li, .cons li {
+  position: relative; padding: .5rem 0 .5rem 1.7rem; font-size: .85rem;
+  line-height: 1.65; color: var(--ink-2); border-bottom: 1px solid var(--line);
+}
+.pros li:last-child, .cons li:last-child { border-bottom: none; }
+.pros li::before { content: '✓'; position: absolute; right: 0; top: .5rem; color: #059669; font-weight: 700; }
+.cons li::before { content: '✗'; position: absolute; right: 0; top: .5rem; color: #ef4444; font-weight: 700; }
+
+/* ══════════════════════════════════════════════════════════════
+   Requirements
+   ══════════════════════════════════════════════════════════════ */
+.req-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.1rem; }
+.req-card { background: var(--paper-soft); border: 1px solid var(--line); border-radius: 1rem; padding: 1.4rem; }
+.req-hdr { display: flex; align-items: center; gap: .55rem; margin-bottom: .9rem; }
+.req-ic {
+  width: 38px; height: 38px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; font-size: 1.15rem;
+}
+.req-ic.android { background: rgba(26,115,232,.1); color: #1a73e8; }
+.req-ic.win { background: rgba(0,120,215,.1); color: #0078d7; }
+.req-name { font-family: 'Readex Pro', sans-serif; font-weight: 600; font-size: .95rem; }
+.req-list li {
+  display: flex; justify-content: space-between; padding: .45rem 0;
+  border-bottom: 1px solid var(--line); font-size: .82rem;
+}
+.req-list li:last-child { border-bottom: none; }
+.req-k { color: var(--ink-3); }
+.req-v { color: var(--ink); font-weight: 500; }
+
+/* ══════════════════════════════════════════════════════════════
+   Changelog
+   ══════════════════════════════════════════════════════════════ */
+.changelog { background: var(--paper-soft); border: 1px solid var(--line); border-radius: 1rem; padding: 1.4rem; }
+.cl-item { padding: .9rem 0; border-bottom: 1px solid var(--line); }
+.cl-item:last-child { border-bottom: none; }
+.cl-ver {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: var(--accent-soft); color: var(--accent);
+  padding: .18rem .6rem; border-radius: 999px; font-size: .73rem; font-weight: 600;
+}
+.cl-date { font-size: .73rem; color: var(--ink-3); margin-inline-start: .5rem; }
+.cl-desc { font-size: .83rem; color: var(--ink-2); line-height: 1.7; margin-top: .3rem; }
+
+/* ══════════════════════════════════════════════════════════════
+   CTA Section
+   ══════════════════════════════════════════════════════════════ */
+.app-cta {
+  text-align: center; padding: 4.5rem 1.5rem; position: relative;
+}
+.app-cta::before {
+  content: ''; position: absolute; bottom: -20%; left: 50%; transform: translateX(-50%);
+  width: 650px; height: 650px;
+  background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+.cta-inner { position: relative; z-index: 1; }
+.app-cta h2 {
+  font-family: 'Readex Pro', sans-serif; font-size: 1.7rem; font-weight: 700;
+  margin-bottom: .7rem; color: var(--ink);
+}
+.app-cta p { color: var(--ink-2); font-size: .92rem; margin-bottom: 2rem; line-height: 1.7; }
+
+/* ══════════════════════════════════════════════════════════════
+   Footer — Riwaq
+   ══════════════════════════════════════════════════════════════ */
+.rw-footer {
+  border-top: 1px solid var(--line); padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+.rw-footer-inner { max-width: 960px; margin: 0 auto; }
+.rw-footer-brand {
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
+  margin-bottom: 1rem;
+}
+.rw-footer-logo {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: .45rem;
+  background: var(--ink); color: var(--paper);
+}
+.rw-footer-name {
+  font-family: 'Readex Pro', sans-serif; font-weight: 600;
+  font-size: 12px; letter-spacing: .3em; color: var(--ink);
+}
+.rw-footer-desc { font-size: .78rem; color: var(--ink-3); line-height: 1.7; max-width: 380px; margin: 0 auto 1.2rem; }
+.rw-footer-copy {
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+  font-size: .72rem; color: var(--ink-3); font-family: monospace;
+}
+.rw-footer-live {
+  display: inline-flex; align-items: center; gap: .35rem; color: var(--accent);
+}
+.rw-footer-live .ping {
+  display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); animation: ping 1s cubic-bezier(0,0,.2,1) infinite;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Responsive
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .app-hero { padding: 3.5rem 1rem 2.5rem; min-height: auto; }
+  .app-hero h1 { font-size: 1.55rem; }
+  .sec { padding: 2.5rem 1rem; }
+  .phone { width: 175px; }
+  .dl-group { flex-direction: column; align-items: center; }
+  .dl-btn { width: 100%; max-width: 280px; justify-content: center; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .pc-grid { grid-template-columns: 1fr; }
+  .app-cta h2 { font-size: 1.35rem; }
+  .rw-topbar-inner { padding: 0 1rem; }
+  .gh-btn span.gh-text { display: none; }
+}
+</style>
+</head>
+
+<body class="app-bg">
+
+  <!-- ═══════════════════════════════════════
+       HEADER — Riwaq Style Navbar
+       ═══════════════════════════════════════ -->
+  <header class="rw-topbar">
+    <div class="rw-topbar-inner">
+      <!-- Logo -->
+      <a class="rw-logo" href="https://YOUR_BLOG_URL.blogspot.com/">
+        <span class="rw-logo-icon">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg>
+        </span>
+        <span class="rw-logo-text">IMAGISM</span>
+      </a>
+
+      <!-- Actions -->
+      <div class="rw-nav-actions">
+        <!-- GitHub Link -->
+        <a class="gh-btn" href="https://github.com/YOUR_GITHUB_REPO" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          <span class="gh-text">GitHub</span>
+        </a>
+
+        <!-- Theme Toggle -->
+        <button aria-label="تبديل المظهر" class="theme-btn" id="theme-toggle" type="button">
+          <svg class="t-sun" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="t-moon" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="t-night" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/><path d="M9 21h6"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════ -->
+  <section class="app-hero">
+    <div class="hero-inner">
+
+      <!-- 🔹 الصورة الرئيسية -->
+      <div class="hero-img-wrap">
+        <img src="YOUR_HERO_IMAGE_URL_HERE" alt="صورة تقديم التطبيق" />
+      </div>
+
+      <!-- 🔹 أيقونة التطبيق -->
+      <div class="app-icon">
+        <img src="YOUR_APP_ICON_URL_HERE" alt="أيقونة التطبيق" />
+      </div>
+
+      <!-- شارة -->
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        إصدار جديد متاح
+      </div>
+
+      <h1>اسم التطبيق هنا</h1>
+
+      <p class="hero-desc">
+        وصف مختصر وجذاب لتطبيقك يظهر هنا. اشرح ما يفعله التطبيق ولماذا يحتاجه المستخدم في سطرين أو ثلاثة.
+      </p>
+
+      <!-- 🔹 أزرار التحميل -->
+      <div class="dl-group">
+        <a href="YOUR_ANDROID_DOWNLOAD_LINK" class="dl-btn dl-android" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 2.237a.6.6 0 0 0-.858.2l-1.457 2.526A8.5 8.5 0 0 0 12 4.358a8.5 8.5 0 0 0-3.208.605L7.335 2.437a.625.625 0 1 0-1.058.658L7.7 5.549A8.53 8.53 0 0 0 3.5 12.6h17a8.53 8.53 0 0 0-3.56-6.818l1.44-2.637a.6.6 0 0 0-.2-.858zM8.5 10a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm7 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+          <span>تحميل للأندرويد</span>
+          <span class="dl-ver">v2.0</span>
+        </a>
+        <a href="YOUR_WINDOWS_DOWNLOAD_LINK" class="dl-btn dl-windows" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.548l7.197-.99v6.949H3zm0 12.904l7.197.99v-6.949H3zm8.018 1.1L22 21v-8.507H11.018zm0-14.104v8.06H22V3z"/></svg>
+          <span>تحميل للويندوز</span>
+          <span class="dl-ver">v2.0</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       INFO CARD
+       ═══════════════════════════════════════ -->
+  <div class="sec sr">
+    <div class="info-card">
+      <div class="info-item"><div class="info-label">الإصدار</div><div class="info-val">2.0.0</div></div>
+      <div class="info-item"><div class="info-label">الحجم</div><div class="info-val">25 MB</div></div>
+      <div class="info-item"><div class="info-label">آخر تحديث</div><div class="info-val">نوفمبر 2026</div></div>
+      <div class="info-item"><div class="info-label">المطوّر</div><div class="info-val">اسم المطوّر</div></div>
+      <div class="info-item"><div class="info-label">الترخيص</div><div class="info-val">مجاني</div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       PHONE SCREENSHOTS (8 صور)
+       ═══════════════════════════════════════ -->
+  <div class="ornament sr">لقطات الشاشة</div>
+  <section class="phones-sec">
+    <div class="phones-track">
+      <!-- 🔹 8 صور × 2 (للتمرير اللانهائي) -->
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_1" alt="لقطة 1"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_2" alt="لقطة 2"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_3" alt="لقطة 3"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_4" alt="لقطة 4"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_5" alt="لقطة 5"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_6" alt="لقطة 6"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_7" alt="لقطة 7"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_8" alt="لقطة 8"/></div>
+      <!-- نسخة ثانية -->
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_1" alt="لقطة 1"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_2" alt="لقطة 2"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_3" alt="لقطة 3"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_4" alt="لقطة 4"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_5" alt="لقطة 5"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_6" alt="لقطة 6"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_7" alt="لقطة 7"/></div>
+      <div class="phone"><img src="YOUR_PHONE_SCREENSHOT_8" alt="لقطة 8"/></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       DESKTOP SCREENSHOT
+       ═══════════════════════════════════════ -->
+  <section class="sec">
+    <div class="sec-title sr">نسخة الحاسوب</div>
+    <div class="sec-sub sr sr-d1">واجهة مصممة خصيصاً لشاشات الحاسوب مع كامل الميزات</div>
+    <div class="desktop-frame sr sr-d2">
+      <div class="desktop-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <!-- 🔹 صورة الحاسوب -->
+      <img src="YOUR_DESKTOP_SCREENSHOT_URL" alt="لقطة شاشة الحاسوب" />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FEATURES
+       ═══════════════════════════════════════ -->
+  <div class="ornament sr">المميزات</div>
+  <section class="sec">
+    <div class="sec-title sr">لماذا تختار هذا التطبيق؟</div>
+    <div class="sec-sub sr sr-d1">مجموعة من الميزات المتقدمة التي تجعل تجربتك أفضل</div>
+    <div class="feat-grid">
+      <div class="feat-card sr"><div class="feat-icon">⚡</div><div class="feat-title">سرعة فائقة</div><div class="feat-desc">أداء عالٍ وسرعة استجابة ممتازة تضمن تجربة سلسة بدون تأخير.</div></div>
+      <div class="feat-card sr sr-d1"><div class="feat-icon">🎨</div><div class="feat-title">تصميم أنيق</div><div class="feat-desc">واجهة مستخدم عصرية ومتناسقة مع دعم الوضع الليلي والداكن.</div></div>
+      <div class="feat-card sr sr-d2"><div class="feat-icon">🔒</div><div class="feat-title">آمن وموثوق</div><div class="feat-desc">حماية بياناتك مع تشفير متقدم ونظام أمان قوي.</div></div>
+      <div class="feat-card sr sr-d3"><div class="feat-icon">📱</div><div class="feat-title">متعدد المنصات</div><div class="feat-desc">متاح لأجهزة أندرويد والحاسوب (ويندوز) بنفس التجربة الرائعة.</div></div>
+      <div class="feat-card sr sr-d4"><div class="feat-icon">🌐</div><div class="feat-title">يعمل بدون إنترنت</div><div class="feat-desc">يمكنك استخدام معظم الميزات بدون الحاجة لاتصال بالإنترنت.</div></div>
+      <div class="feat-card sr sr-d4"><div class="feat-icon">🔄</div><div class="feat-title">تحديثات مستمرة</div><div class="feat-desc">فريق تطوير نشط يضمن تحديثات دورية مع ميزات جديدة وإصلاحات.</div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ADDONS
+       ═══════════════════════════════════════ -->
+  <div class="ornament sr">الإضافات</div>
+  <section class="sec">
+    <div class="sec-title sr">إضافات متاحة</div>
+    <div class="sec-sub sr sr-d1">وسّع إمكانيات التطبيق مع هذه الإضافات</div>
+    <div class="addons-grid">
+      <div class="addon sr"><div class="addon-icon">🧩</div><div><div class="addon-name">اسم الإضافة الأولى</div><div class="addon-desc">وصف مختصر لما تفعله هذه الإضافة</div></div></div>
+      <div class="addon sr sr-d1"><div class="addon-icon">🔌</div><div><div class="addon-name">اسم الإضافة الثانية</div><div class="addon-desc">وصف مختصر لما تفعله هذه الإضافة</div></div></div>
+      <div class="addon sr sr-d2"><div class="addon-icon">📊</div><div><div class="addon-name">اسم الإضافة الثالثة</div><div class="addon-desc">وصف مختصر لما تفعله هذه الإضافة</div></div></div>
+      <div class="addon sr sr-d3"><div class="addon-icon">🎯</div><div><div class="addon-name">اسم الإضافة الرابعة</div><div class="addon-desc">وصف مختصر لما تفعله هذه الإضافة</div></div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PROS & CONS
+       ═══════════════════════════════════════ -->
+  <div class="ornament sr">التقييم</div>
+  <section class="sec">
+    <div class="sec-title sr">الإيجابيات والسلبيات</div>
+    <div class="sec-sub sr sr-d1">نظرة صادقة على نقاط القوة والضعف</div>
+    <div class="pc-grid sr sr-d2">
+      <div class="pros">
+        <div class="pc-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          الإيجابيات
+        </div>
+        <ul>
+          <li>واجهة مستخدم سهلة وبديهية</li>
+          <li>سرعة عالية في الأداء</li>
+          <li>حجم صغير ولا يستهلك موارد كثيرة</li>
+          <li>دعم للغة العربية بالكامل</li>
+          <li>مجاني بالكامل بدون إعلانات مزعجة</li>
+          <li>يعمل بدون إنترنت</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <div class="pc-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+          السلبيات
+        </div>
+        <ul>
+          <li>لا يدعم نظام iOS حالياً</li>
+          <li>بعض الميزات المتقدمة قيد التطوير</li>
+          <li>يحتاج اتصال إنترنت لبعض الخدمات</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       REQUIREMENTS
+       ═══════════════════════════════════════ -->
+  <div class="ornament sr">المتطلبات</div>
+  <section class="sec">
+    <div class="sec-title sr">متطلبات التشغيل</div>
+    <div class="sec-sub sr sr-d1">تأكد أن جهازك يلبي الحد الأدنى</div>
+    <div class="req-grid sr sr-d2">
+      <div class="req-card">
+        <div class="req-hdr">
+          <div class="req-ic android"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 2.237a.6.6 0 0 0-.858.2l-1.457 2.526A8.5 8.5 0 0 0 12 4.358a8.5 8.5 0 0 0-3.208.605L7.335 2.437a.625.625 0 1 0-1.058.658L7.7 5.549A8.53 8.53 0 0 0 3.5 12.6h17a8.53 8.53 0 0 0-3.56-6.818l1.44-2.637a.6.6 0 0 0-.2-.858zM8.5 10a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm7 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg></div>
+          <div class="req-name">أندرويد</div>
+        </div>
+        <ul class="req-list">
+          <li><span class="req-k">نظام التشغيل</span><span class="req-v">Android 6.0+</span></li>
+          <li><span class="req-k">RAM</span><span class="req-v">2 GB</span></li>
+          <li><span class="req-k">مساحة التخزين</span><span class="req-v">50 MB</span></li>
+          <li><span class="req-k">المعالج</span><span class="req-v">ARM 64-bit</span></li>
+        </ul>
+      </div>
+      <div class="req-card">
+        <div class="req-hdr">
+          <div class="req-ic win"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.548l7.197-.99v6.949H3zm0 12.904l7.197.99v-6.949H3zm8.018 1.1L22 21v-8.507H11.018zm0-14.104v8.06H22V3z"/></svg></div>
+          <div class="req-name">ويندوز</div>
+        </div>
+        <ul class="req-list">
+          <li><span class="req-k">نظام التشغيل</span><span class="req-v">Windows 10+</span></li>
+          <li><span class="req-k">RAM</span><span class="req-v">4 GB</span></li>
+          <li><span class="req-k">مساحة التخزين</span><span class="req-v">150 MB</span></li>
+          <li><span class="req-k">المعالج</span><span class="req-v">x64</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CHANGELOG
+       ═══════════════════════════════════════ -->
+  <div class="ornament sr">التحديثات</div>
+  <section class="sec">
+    <div class="sec-title sr">سجل التحديثات</div>
+    <div class="sec-sub sr sr-d1">تابع آخر التغييرات والتحسينات</div>
+    <div class="changelog sr sr-d2">
+      <div class="cl-item"><span class="cl-ver">v2.0.0</span><span class="cl-date">نوفمبر 2026</span><div class="cl-desc">إعادة تصميم كاملة للواجهة مع دعم الوضع الداكن والليلي. تحسينات كبيرة في الأداء.</div></div>
+      <div class="cl-item"><span class="cl-ver">v1.5.0</span><span class="cl-date">أغسطس 2026</span><div class="cl-desc">إضافة ميزات جديدة وإصلاح أخطاء متعددة. تحسين استهلاك البطارية.</div></div>
+      <div class="cl-item"><span class="cl-ver">v1.0.0</span><span class="cl-date">مايو 2026</span><div class="cl-desc">الإطلاق الأول — جميع الميزات الأساسية متاحة.</div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CTA — Final Download
+       ═══════════════════════════════════════ -->
+  <section class="app-cta">
+    <div class="cta-inner sr">
+      <h2>جاهز للتجربة؟</h2>
+      <p>حمّل التطبيق الآن وابدأ تجربة مختلفة تماماً</p>
+      <div class="dl-group" style="animation:none;opacity:1">
+        <a href="YOUR_ANDROID_DOWNLOAD_LINK" class="dl-btn dl-android" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 2.237a.6.6 0 0 0-.858.2l-1.457 2.526A8.5 8.5 0 0 0 12 4.358a8.5 8.5 0 0 0-3.208.605L7.335 2.437a.625.625 0 1 0-1.058.658L7.7 5.549A8.53 8.53 0 0 0 3.5 12.6h17a8.53 8.53 0 0 0-3.56-6.818l1.44-2.637a.6.6 0 0 0-.2-.858zM8.5 10a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm7 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+          <span>تحميل للأندرويد</span>
+        </a>
+        <a href="YOUR_WINDOWS_DOWNLOAD_LINK" class="dl-btn dl-windows" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.548l7.197-.99v6.949H3zm0 12.904l7.197.99v-6.949H3zm8.018 1.1L22 21v-8.507H11.018zm0-14.104v8.06H22V3z"/></svg>
+          <span>تحميل للويندوز</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER — Riwaq
+       ═══════════════════════════════════════ -->
+  <footer class="rw-footer">
+    <div class="rw-footer-inner">
+      <div class="rw-footer-brand">
+        <span class="rw-footer-logo">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg>
+        </span>
+        <span class="rw-footer-name">IMAGISM</span>
+      </div>
+      <p class="rw-footer-desc">
+        منصة عربية مستقلة تلتزم بالقراءة المتأملة والكتابة الرصينة.
+      </p>
+      <div class="rw-footer-copy">
+        <span>IMAGISM &copy; 2026</span>
+        <span class="rw-footer-live"><span class="ping"></span> أرشيف حي</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       JavaScript
+       ═══════════════════════════════════════ -->
+  <script>
+  (function(){
+    'use strict';
+
+    // --- Theme Toggle (Light → Dark → Night → Light) ---
+    var themes = ['light','dark','night'];
+    var themeBtn = document.getElementById('theme-toggle');
+    function getTheme(){ return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function setTheme(t){
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.style.colorScheme = (t === 'night' ? 'dark' : t);
+      var mc = document.querySelector('meta[name="theme-color"]');
+      if(mc) mc.content = t === 'light' ? '#F6F3ED' : (t === 'dark' ? '#121210' : '#18140F');
+      try { localStorage.setItem('riwaq_theme', t); } catch(e){}
+    }
+    if(themeBtn){
+      themeBtn.addEventListener('click', function(){
+        var cur = getTheme();
+        var i = themes.indexOf(cur);
+        setTheme(themes[(i + 1) % themes.length]);
+      });
+    }
+
+    // --- Scroll Reveal (Intersection Observer) ---
+    var srEls = document.querySelectorAll('.sr');
+    if('IntersectionObserver' in window){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+      srEls.forEach(function(el){ obs.observe(el); });
+    } else {
+      srEls.forEach(function(el){ el.classList.add('visible'); });
+    }
+  })();
+  </script>
+
+</body>
+</html>
